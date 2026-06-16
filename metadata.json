@@ -1,0 +1,6 @@
+{
+  "name": "StatLynk Outreach CRM",
+  "description": "Enterprise CRM and AI outreach assistant for StatLynk Solutions to manage leads, generate personalized cold emails, write dynamic call scripts, design high-quality proposals, and build LinkedIn posts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

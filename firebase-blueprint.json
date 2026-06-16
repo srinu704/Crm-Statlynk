@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "StatLynk CRM Authorized Pilot",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "sales"] },
+        "passwordHash": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "email", "name", "role", "passwordHash", "createdAt"]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "SLA Lead Details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "companyName": { "type": "string" },
+        "contactPerson": { "type": "string" },
+        "designation": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "industry": { "type": "string" },
+        "city": { "type": "string" },
+        "website": { "type": "string" },
+        "leadSource": { "type": "string" },
+        "status": { "type": "string" },
+        "lastContactDate": { "type": "string" },
+        "nextFollowUpDate": { "type": "string" },
+        "notes": { "type": "string" },
+        "meetingOutcome": { "type": "string" },
+        "creatorId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "companyName", "contactPerson", "email", "creatorId", "createdAt"]
+    },
+    "Activity": {
+      "title": "Activity",
+      "description": "Audit Trail / Touchpoints",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "leadId": { "type": "string" },
+        "companyName": { "type": "string" },
+        "type": { "type": "string" },
+        "description": { "type": "string" },
+        "performerName": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["id", "leadId", "companyName", "type", "description", "performerName", "date"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Authorized Sales/Admin users"
+    },
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Company Sales Leads"
+    },
+    "/activities/{activityId}": {
+      "schema": "Activity",
+      "description": "Touchpoint Logs"
+    }
+  }
+}
